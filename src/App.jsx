@@ -1,11 +1,23 @@
-import Todo from './components/todo/Todo'
 import './App.css'
+import Header from './components/header/Header'
+import Form from './components/form/Form'
+import TodoList from './components/todoList/TodoList'
+import { useState } from 'react'
 
-function App() {
+const App = () => {
+  const [todo, setTodo] = useState('')
+  const [todoList, setTodoList] = useState([])
+
   return (
     <>
-      <h1>This is the main page</h1>
-      <Todo />
+      <Header />
+      <Form
+        todo={todo}
+        setTodo={setTodo}
+        todoList={todoList}
+        setTodoList={setTodoList}
+      />
+      <TodoList todoList={todoList} setTodoList={setTodoList} />
     </>
   )
 }
